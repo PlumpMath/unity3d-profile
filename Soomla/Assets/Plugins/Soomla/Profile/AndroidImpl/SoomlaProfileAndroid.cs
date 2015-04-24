@@ -71,6 +71,20 @@ namespace Soomla.Profile {
 			return loggedIn;
 		}
 
+		protected override string _getAccessToken(Provider provider) {
+			string accessToken;
+			AndroidJNI.PushLocalFrame(100);
+			using (AndroidJavaClass unityActivityClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer")) {
+				using(AndroidJavaObject unityActivity = unityActivityClass.GetStatic<AndroidJavaObject>("currentActivity")) {
+					using(AndroidJavaClass jniSoomlaProfile = new AndroidJavaClass("com.soomla.profile.unity.UnitySoomlaProfile")) {
+						accessToken = ProfileJNIHandler.CallStatic<string>(jniSoomlaProfile, "getAccessToken", unityActivity, provider.ToString());
+					}
+				}
+			}
+			AndroidJNI.PopLocalFrame(IntPtr.Zero);
+			return accessToken;
+		}
+
 		protected override void _updateStatus(Provider provider, string status, string payload){
 			AndroidJNI.PushLocalFrame(100);
 			using(AndroidJavaClass jniSoomlaProfile = new AndroidJavaClass("com.soomla.profile.unity.UnitySoomlaProfile")) {

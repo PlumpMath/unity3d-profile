@@ -180,6 +180,27 @@ namespace Soomla.Profile
 		}
 
 		/// <summary>
+		/// Get the current active access token.
+		/// Supported platforms: Facebook, Google+ (Twitter returns null).
+		/// </summary>
+		/// <returns>If is logged into the specified provider, returns the active access tkoen.</returns>
+		/// <param name="provider">The provider to get the active access token for.</param>
+		public static string GetAccessToken(Provider provider) {
+
+			SocialProvider targetProvider = GetSocialProvider(provider);
+			if (targetProvider == null)
+				return false;
+
+			if (targetProvider.IsNativelyImplemented ()) 
+			{
+				//fallback to native
+				return instance._getAccessToken(provider);
+			}
+
+			return targetProvider.GetAccessToken();
+		}
+
+		/// <summary>
 		/// Updates the user's status on the given provider. 
 		/// Supported platforms: Facebook, Twitter, Google+
 		/// 
@@ -552,6 +573,7 @@ namespace Soomla.Profile
 		protected virtual void _logout (Provider provider) { }
 		
 		protected virtual bool _isLoggedIn(Provider provider) { return false; }
+		protected virtual string _getAccessToken(Provider provider) { return null; }
 		
 		protected virtual void _updateStatus(Provider provider, string status, string payload) { }
 		

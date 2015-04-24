@@ -45,6 +45,11 @@ public class UnitySoomlaProfile {
         return SoomlaProfile.getInstance().isLoggedIn(activity, provider);
     }
 
+    public static String getAccessToke(Activity activity, String providerStr) throws ProviderNotFoundException {
+        Provider provider = Provider.getEnum(providerStr);
+        return SoomlaProfile.getInstance().getAccessToke(activity, provider);
+    }
+
     public static void updateStatus(String providerStr, String status, String payload) throws ProviderNotFoundException {
         Provider provider = Provider.getEnum(providerStr);
         SoomlaProfile.getInstance().updateStatus(provider, status, payload, null);

@@ -82,6 +82,11 @@ namespace Soomla.Profile
 		public abstract bool IsLoggedIn();
 
 		/// <summary>
+		/// See docs in <see cref="SoomlaProfile.GetAccessToken"/>
+		/// </summary>
+		public abstract string GetAccessToken();
+
+		/// <summary>
 		/// See docs in <see cref="SoomlaProfile.Invite"/>
 		/// </summary>
 		public abstract void Invite(string inviteMessage, string dialogTitle, InviteSuccess success, InviteFailed fail, InviteCancelled cancel);

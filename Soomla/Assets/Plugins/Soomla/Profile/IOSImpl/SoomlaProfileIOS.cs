@@ -38,6 +38,8 @@ namespace Soomla.Profile {
 		[DllImport ("__Internal")]
 		private static extern bool soomlaProfile_IsLoggedIn(string provider);
 		[DllImport ("__Internal")]
+		private static extern string soomlaProfile_GetAccessToken(string provider);
+		[DllImport ("__Internal")]
 		private static extern void soomlaProfile_UpdateStatus(string provider, string status, string payload);
 		[DllImport ("__Internal")]
 		private static extern void soomlaProfile_UpdateStory(string provider, string message,
@@ -69,9 +71,13 @@ namespace Soomla.Profile {
 		protected override void _logout(Provider provider){
 			soomlaProfile_Logout(provider.ToString());
 		}
-
+		
 		protected override bool _isLoggedIn(Provider provider){
 			return soomlaProfile_IsLoggedIn(provider.ToString());
+		}
+
+		protected override string _getAccessToken(Provider provider){
+			return soomlaProfile_GetAccessToken(provider.ToString());
 		}
 
 		protected override void _updateStatus(Provider provider, string status, string payload){

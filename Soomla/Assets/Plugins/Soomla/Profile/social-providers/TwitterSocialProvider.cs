@@ -61,6 +61,11 @@ namespace Soomla.Profile
 		/// See docs in <see cref="SoomlaProfile.IsLoggedIn"/>
 		/// </summary>
 		public override bool IsLoggedIn() {return false;}
+		
+		/// <summary>
+		/// See docs in <see cref="SoomlaProfile.GetAccessToken"/>
+		/// </summary>
+		public override string GetAccessToken { return null; }
 
 		/// <summary>
 		/// See docs in <see cref="SoomlaProfile.Invite"/>

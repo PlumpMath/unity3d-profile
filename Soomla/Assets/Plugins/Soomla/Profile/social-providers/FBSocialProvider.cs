@@ -104,6 +104,16 @@ namespace Soomla.Profile
 		}
 
 		/// <summary>
+		/// See docs in <see cref="SoomlaProfile.GetAccessToken"/>
+		/// </summary>
+		/// <returns>Get the current Facebook access token or null.</returns>
+		public override string GetAccessToken() {
+			var token = FB.AccessToken;
+
+			return token == "" ? null : token;
+		}
+
+		/// <summary>
 		/// See docs in <see cref="SoomlaProfile.UpdateStatus"/>
 		/// </summary>
 		/// <param name="status">Status to post.</param>
