@@ -1,12 +1,12 @@
 [submodule "submodules/android-profile"]
 	path = submodules/android-profile
-	url = https://github.com/soomla/android-profile
+	url = https://github.com/aimproductions/android-profile
 [submodule "submodules/ios-profile"]
 	path = submodules/ios-profile
-	url = https://github.com/soomla/ios-profile
+	url = https://github.com/aimproductions/ios-profile
 [submodule "submodules/soomla-unity3d-core"]
 	path = submodules/soomla-unity3d-core
-	url = git@github.com:soomla/soomla-unity3d-core.git
+	url = git@github.com:aimproductions/soomla-unity3d-core.git
 [submodule "submodules/soomla-ios-core"]
 	path = submodules/soomla-ios-core
-	url = git@github.com:soomla/soomla-ios-core.git
+	url = git@github.com:aimproductions/soomla-ios-core.git
