@@ -46,7 +46,7 @@ Unity debug messages will only be printed out if you build the project with _Dev
 There are some necessary files in submodules linked with symbolic links. If you're cloning the project make sure you clone it with the `--recursive` flag.
 
 ```
-$ git clone --recursive git@github.com:soomla/unity3d-profile.git
+$ git clone --recursive git@github.com:aimproductions/unity3d-profile.git
 ```
 
 ## Getting Started
