@@ -49,6 +49,12 @@ extern "C"{
         
         return [[SoomlaProfile getInstance] isLoggedInWithProvider:[UserProfileUtils providerStringToEnum:providerIdS]];
     }
+	
+    NSString* soomlaProfile_GetAccessToken(const char* sProvider){
+        NSString* providerIdS = [NSString stringWithUTF8String:sProvider];
+        
+        return [[SoomlaProfile getInstance] getAccessTokenWithProvider:[UserProfileUtils providerStringToEnum:providerIdS]];
+    }
     
     void soomlaProfile_UpdateStatus(const char* sProvider, const char* status, const char* payload){
         NSString* providerIdS = [NSString stringWithUTF8String:sProvider];
