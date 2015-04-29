@@ -181,7 +181,7 @@ namespace Soomla.Profile
 
 		/// <summary>
 		/// Get the current active access token.
-		/// Supported platforms: Facebook, Google+ (Twitter returns null).
+		/// Supported platforms: Facebook, Twitter (returns a json string with token and token_secret), Google+
 		/// </summary>
 		/// <returns>If is logged into the specified provider, returns the active access tkoen.</returns>
 		/// <param name="provider">The provider to get the active access token for.</param>
@@ -189,7 +189,7 @@ namespace Soomla.Profile
 
 			SocialProvider targetProvider = GetSocialProvider(provider);
 			if (targetProvider == null)
-				return false;
+				return null;
 
 			if (targetProvider.IsNativelyImplemented ()) 
 			{
